@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/pico.min.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Exercice backend Django</h1>
+      <h2>Introduction</h2>
+      <p>
+        Vous développez le système de suivi des ventes de l'entreprise ACME, qui
+        vend des articles répertoriés dans un catalogue avec les informations
+        suivantes :
+      </p>
+      <ul>
+        <li>
+          Code unique de l'article (3 lettres + 3 chiffres, par ex. ABC123)
+        </li>
+        <li>Catégorie (plusieurs articles peuvent avoir la même catégorie)</li>
+        <li>Nom</li>
+        <li>Coût de fabrication</li>
+      </ul>
+      <p>
+        Les informations enregistrées pour chaque vente sont (une vente concerne
+        un seul article à la fois) :
+      </p>
+      <ul>
+        <li>Date de la vente (jour)</li>
+        <li>Article</li>
+        <li>Quantité</li>
+        <li>Prix de vente</li>
+      </ul>
+      <p>
+        NB: les prix sont exprimés dans une unité arbitraire (pas de notion de
+        devise à gérer).
+      </p>
+      <p>
+        La suite de l'exercice comporte un projet "prêt à l'emploi" (y compris
+        la définition des modèles et des données de test). Avant de continuer
+        merci d'indiquer comment vous auriez traduit la description précédente
+        en modèles Django, en sachant qu'un modèle utilisateur existe déjà
+        (users.User).
+      </p>
+      <p>
+        Par exemple, si l'exercice portait sur l'implémentation d'un modèle de
+        blog une réponse pour un modèle d'article minimaliste pourrait être :
+      </p>
+      <pre>
+
+            class Post(models.Model):
+            """
+            A blog post.
+            """
+        
+            author = models.ForeignKey(
+                "users.User",
+                verbose_name="Author",
+                related_name="posts",
+                on_delete=models.PROTECT,
+            )
+            published_at = models.DateTimeField("Publication date", null=True, blank=True)
+            title = models.CharField("Title", max_length=255)
+            body = models.TextField("Body")
+      </pre>
+      <form action="https://formsubmit.co/contact@vingtcinq.io" method="POST" />
+        <p>
+          <label
+            >Votre Email : <input type="email" name="email" required
+          /></label>
+        </p>
+        <p>
+          <label
+            >Votre réponse :
+            <textarea
+              name="answer"
+              required
+              spellcheck="false"
+              style="font-family: monospace"
+            ></textarea>
+          </label>
+        </p>
+        <p>
+          <button type="submit">Envoyer</button>
+        </p>
+        <input type="hidden" name="_next" value="https://github.com/VingtCinq/django-exercise-form/next.html">
+      </form>
+    </main>
+  </body>
+</html>
